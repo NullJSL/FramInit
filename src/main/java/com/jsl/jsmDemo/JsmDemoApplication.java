@@ -15,9 +15,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class JsmDemoApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(JsmDemoApplication.class,args);
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(JsmDemoApplication.class);
+		SpringApplication.run(JsmDemoApplication.class,args);
+		//SpringApplicationBuilder builder = new SpringApplicationBuilder(JsmDemoApplication.class);
 		//修改Banner的模式为OFF
-		builder.bannerMode(Banner.Mode.CONSOLE).run(args);
+		//builder.bannerMode(Banner.Mode.CONSOLE).run(args);
 	}
 }

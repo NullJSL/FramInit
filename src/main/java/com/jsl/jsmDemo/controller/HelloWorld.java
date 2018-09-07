@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -29,24 +30,33 @@ import java.util.List;
  * Description:
  * <p/>
  * Modification History:
- * Date    Author      Version     Description
+            * Date    Author      Version     Description
  * -----------------------------------------------------------------
- * 2018-09-03  贾帅      1.0     1.0 Version
+         * 2018-09-03  贾帅      1.0     1.0 Version
  */
-@Controller
-@EnableAutoConfiguration
+    @Controller
+    @EnableAutoConfiguration
 public class HelloWorld {
 
 
-   private final Logger log = LoggerFactory.getLogger(HelloWorld.class);
+        private final Logger log = LoggerFactory.getLogger(HelloWorld.class);
 
-    @Autowired
+    @Resource
     private TestInterFace testInterFace;
-    @Autowired
+    @Resource
     private UserServiceImp userServiceImp;
 
     @Value("${xyx.name}")
     private String myName;
+
+
+    @RequestMapping(value = "/hello")
+    public ModelAndView helloWorldFramInit(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        System.out.println("第一次修改");
+        return modelAndView;
+    }
 
     @RequestMapping("/findAll")
     public void findAll(){

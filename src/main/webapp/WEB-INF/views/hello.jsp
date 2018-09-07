@@ -8,7 +8,6 @@
 </head>
 <body>
 hello world!!!
-name=${name } welcome!
 
 </body>
 </html>

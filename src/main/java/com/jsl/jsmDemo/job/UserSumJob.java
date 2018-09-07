@@ -29,7 +29,7 @@ public class UserSumJob {
 
     private Boolean isRun = false;
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    //@Scheduled(cron = "0/5 * * * * ?")
     public void sumJob(){
 
         try {

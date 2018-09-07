@@ -25,4 +25,5 @@ import java.util.List;
 public interface MyMapper<UserInfo> extends MySqlMapper<UserInfo> , Mapper<UserInfo> {
 
     List<UserInfo> findAll();
+
 }

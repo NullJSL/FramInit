@@ -46,62 +46,6 @@ public class HelloWorld {
     @Resource
     private UserServiceImp userServiceImp;
 
-    @Value("${xyx.name}")
-    private String myName;
-
-
-    @RequestMapping(value = "/hello")
-    public ModelAndView helloWorldFramInit(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        System.out.println("第一次修改");
-        return modelAndView;
-    }
-
-    @RequestMapping("/findAll")
-    public void findAll(){
-        List<UserInfo> userInfos = userServiceImp.selectAll();
-        log.info("用户的数量"+userInfos.size()+"");
-    }
-
-    @RequestMapping(value = "/find")
-    public void findUserInfoByName(@RequestParam("name") String name){
-        UserInfo userInfo = userServiceImp.findyUserInfoByName(name);
-        log.info("用户的密码为"+userInfo.getPassWord());
-    }
-
-    @RequestMapping(value = "/insert")
-    public void insert(){
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserName("高圆圆");
-        userInfo.setPassWord("456");
-        userServiceImp.insert(userInfo);
-    }
-
-    //日志打印
-    @RequestMapping("/log")
-    public void log(){
-        log.info("wasd-----------------======================");
-    }
-
-    @RequestMapping("/num")
-    @ResponseBody
-    public int home() {
-        int i = testInterFace.testInterFace();
-        log.info("wasd-----------------======================");
-        log.error("error");
-        return i;
-    }
-
-    @RequestMapping(value = "/get")
-    @ResponseBody
-    public UserInfo getUser(){
-        return testInterFace.testUser();
-    }
-
-    @RequestMapping(value = "/")
-    @ResponseBody
-    public String hello(){
         System.out.println(myName);
         return myName+"hello welCome";
     }

@@ -48,6 +48,12 @@ public class HelloWorld {
     @Value("${xyx.name}")
     private String myName;
 
+
+
+    @RequestMapping(value = "/hello")
+    public String hellos(){
+        return "hello";
+    }
     @RequestMapping("/findAll")
     public void findAll(){
         List<UserInfo> userInfos = userServiceImp.selectAll();

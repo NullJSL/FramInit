@@ -44,7 +44,7 @@
 
 
 
-		<!--添加Tomcat-->
+		<!--添加Tomcat,把spring-web中的tomcat禁用以后，request，session会失效报错，所以需要添加servlet-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -58,23 +58,6 @@
 			<artifactId>jstl</artifactId>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>org.apache.tomcat.embed</groupId>-->
-			<!--<artifactId>tomcat-embed-jasper</artifactId>-->
-			<!--<scope>provided</scope>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>org.apache.tomcat.embed</groupId>-->
-			<!--<artifactId>tomcat-embed-jasper</artifactId>-->
-			<!--<scope>provided</scope>-->
-		<!--</dependency>-->
-
-		<!--<dependency>-->
-			<!--<groupId>org.eclipse.jdt.core.compiler</groupId>-->
-			<!--<artifactId>ecj</artifactId>-->
-			<!--<version>4.6.1</version>-->
-			<!--<scope>provided</scope>-->
-		<!--</dependency>-->
 
 		<!--添加日志,以时间的格式保存起来-->
 		<dependency>
@@ -111,6 +94,7 @@
 
 
 
+
 	</dependencies>
 
 	<build>
@@ -120,7 +104,41 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+
 	</build>
+
+
+
+	<!-- 本地快照 和release 发布 的配置 -->
+	<distributionManagement>
+		<repository>
+			<!-- ID要和MAVEN中conif/setting.xml 中的server保持一致 -->
+			<id>releases</id>
+			<name>User Project Release</name>
+			<!-- release版本的url地址 -->
+			<url>http://192.168.206.6:8081/repository/yelog-release/</url>
+		</repository>
+
+		<snapshotRepository>
+			<!-- ID要和MAVEN中conif/setting.xml 中的server保持一致 -->
+			<id>snapshots</id>
+			<name>User Project SNAPSHOTS</name>
+			<!-- snapshot版本的url地址 -->
+			<url>http://192.168.206.6:8081/repository/yelog-snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>central</name>
+			<!-- 配置仓库的地址 -->
+			<url>http://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+
+
 
 
 </project>

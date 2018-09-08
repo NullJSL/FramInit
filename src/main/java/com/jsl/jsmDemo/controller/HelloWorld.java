@@ -30,40 +30,34 @@ import java.util.List;
  * Description:
  * <p/>
  * Modification History:
-            * Date    Author      Version     Description
+ * Date    Author      Version     Description
  * -----------------------------------------------------------------
-         * 2018-09-03  贾帅      1.0     1.0 Version
+ * 2018-09-03  贾帅      1.0     1.0 Version
  */
-    @Controller
-    @EnableAutoConfiguration
+@Controller
+@RequestMapping(value = "/api")
 public class HelloWorld {
 
 
-        private final Logger log = LoggerFactory.getLogger(HelloWorld.class);
+    private final Logger log = LoggerFactory.getLogger(HelloWorld.class);
 
     @Resource
     private TestInterFace testInterFace;
     @Resource
     private UserServiceImp userServiceImp;
 
-        System.out.println(myName);
-        return myName+"hello welCome";
+
+
+
+    @RequestMapping(value="/")
+    public String home(){
+        System.out.println("redirect to home page!");
+        return "hello";
     }
 
-    @RequestMapping(value = "/home/page")
-    @ResponseBody
-    public ModelAndView firstJsp(){
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("name","贾帅");
-        modelAndView.setViewName("index");
-        return modelAndView;
+    @RequestMapping(value = "/hello")
+    public String hello(){
+        return "hello";
     }
-
-//    @RequestMapping(value="/game")
-//    public String home(){
-//        System.out.println("redirect to home page!");
-//        return "index";
-//    }
 
 }

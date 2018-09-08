@@ -8,6 +8,7 @@
 </head>
 <body>
 hello world!!!
+<a href="/api/hello">店家首页</a>
 
 </body>
 </html>

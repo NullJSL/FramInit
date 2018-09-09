@@ -108,35 +108,48 @@
 
 	</build>
 
+	<!-- 配置私服工厂 -->
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<url>http://192.168.206.6:8081/repository/maven-public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 
-	<!-- 本地快照 和release 发布 的配置 -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus</id>
+			<url>http://192.168.206.6:8081/repository/maven-public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<!-- 配置发布到私服 -->
 	<distributionManagement>
 		<repository>
-			<!-- ID要和MAVEN中conif/setting.xml 中的server保持一致 -->
-			<id>releases</id>
-			<name>User Project Release</name>
-			<!-- release版本的url地址 -->
+			<id>nexus</id>
+			<name>Nexus Release Repository</name>
 			<url>http://192.168.206.6:8081/repository/yelog-release/</url>
 		</repository>
-
 		<snapshotRepository>
-			<!-- ID要和MAVEN中conif/setting.xml 中的server保持一致 -->
-			<id>snapshots</id>
-			<name>User Project SNAPSHOTS</name>
-			<!-- snapshot版本的url地址 -->
+			<id>nexus</id>
+			<name>Nexus Snapshot Repository</name>
 			<url>http://192.168.206.6:8081/repository/yelog-snapshot/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<id>central</id>
-			<name>central</name>
-			<!-- 配置仓库的地址 -->
-			<url>http://repo.maven.apache.org/maven2</url>
-		</repository>
-	</repositories>
+
 
 
 

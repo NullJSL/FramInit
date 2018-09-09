@@ -60,4 +60,11 @@ public class HelloWorld {
         return "hello";
     }
 
+    @RequestMapping(value = "/findAll")
+    public void findAll(){
+        List<UserInfo> userInfos = userServiceImp.selectAll();
+        log.info("总人数为："+userInfos.size()+"");
+        System.out.println("总人数：");
+    }
+
 }
